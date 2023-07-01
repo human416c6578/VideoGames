@@ -9,6 +9,7 @@ Welcome to the Game Library project! This project is a web-based game library im
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Interface](#interface)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -64,6 +65,21 @@ Below the reviews table, there is a form that allows you to add your own review 
 - Rating: Your rating for the game.
 
 To submit your review, fill in the required information and click the "Add Review" button.
+
+## Interface
+Here are some screenshots of the Game Library interface:
+
+Main Page:
+Main Page
+
+Add Game Form:
+Add Game Form
+
+Game Details Page:
+Game Details
+
+User Reviews Section:
+User Reviews
 
 ## Contributing
 
