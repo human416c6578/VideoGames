@@ -70,16 +70,16 @@ To submit your review, fill in the required information and click the "Add Revie
 Here are some screenshots of the Game Library interface:
 
 Main Page:
-Main Page
+![Index Page](images/index.png)
 
 Add Game Form:
-Add Game Form
+![Add Game Form](images/game_form.png)
 
 Game Details Page:
-Game Details
+![Game Details](images/game_details.png)
 
 User Reviews Section:
-User Reviews
+![Game Reviews](images/reviews.png)
 
 ## Contributing
 
