@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    var game = ViewData["Game"] as VideoGames.Models.Game;
+    var reviews = ViewData["Reviews"] as VideoGames.data.PaginatedList<VideoGames.Models.Review>;
+}
+@model VideoGames.Models.Review
+
+<div class="jumbotron d-flex flex-column p-4">
+    <h2 class="font-weight-bold">@game.Title</h2>
+    <div class="p-2 d-flex flex-column">
+        <label class="p-1 genre">@game.Genre</label>
+        <input
+    class="rating"
+    max="5"
+    readonly
+    step="0.01"
+    style="--fill:#FFD700;--value:@(game.Rating)"
+    type="range"
+    value=@game.Rating>
+    </div>
+    <hr class="my-2" />
+    <div class="p-3 description">
+        <p>
+            @game.Description
+        </p>
+    </div>
+</div>
+
+<div class="p-4">
+    <h3>Reviews</h3>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Review</th>
+          <th><a asp-action="Details" asp-route-sortOrder="@ViewData["RatingSortParam"]">@Html.DisplayNameFor(r => r.Rating)</a></th>
+          <th><a asp-action="Details" asp-route-sortOrder="@ViewData["DateSortParam"]">@Html.DisplayNameFor(r => r.Created)</a></th>
+        </tr>
+      </thead>
+      <tbody>
+            @if (reviews is not null) foreach (var review in reviews)
+                {
+                 <tr>
+                     <td>@review.Author</td>
+                     <td>@review.Comment</td>
+                     <td>
+                         <input
+                            class="rating"
+                            max="5"
+                            readonly
+                            step="0.01"
+                            style="--fill:#FFD700;--value:@(review.Rating)"
+                            type="range"
+                            value=@review.Rating/>
+                     </td>
+                     <td>@review.Created.ToString("hh:mm tt dd/MM/yyyy")</td>
+                 </tr>
+                }
+      </tbody>
+    </table>
+    @if (reviews is not null) for (int i = 1; i <= reviews.TotalPages; i++)
+        {
+            var currentDisabled = reviews.PageIndex == i ? "disabled" : "";
+                <a asp-action="Details"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(i)"
+                   class="btn btn-default @currentDisabled">
+                @i
+                </a>
+        }
+    <h5 class="p-2">Rate Game</h5>
+    <form method="post" action="/Games/AddReview">
+        <div class="input-group">
+                <input
+                    class="rating"
+                    max="5"
+                    oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+                    step="0.5"
+                    style="--value:0"
+                    type="range"
+                    value="0"
+                    aria-label="Rating"
+                    asp-for="Rating"/>
+            </div>
+        <div class="d-flex flex-row gap-4 mt-2">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" placeholder="Name" aria-label="Name" asp-for="Author" />
+            </div>
+        </div>
+        <div>
+            <input type="hidden" value=@game.Id asp-for="GameId"/>
+            <div class="input-group mb-2">
+                <textarea class="form-control" aria-label="Content" placeholder="Review" asp-for="Comment"></textarea>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary my-2">Add Review</button>
+    </form>
+    @{/*
+
+
+        <div class="reviews-container mt-2 d-flex flex-column my-4 overflow-auto">
+        @if (reviews is not null) foreach (var review in reviews)
+            {
+                <div class="p-2 my-2 review">
+                <div class="d-flex flex-row justify-content-between">
+                       <div>
+                           <h5 class="font-weight-bold">
+                           @review.Author
+                           </h5>
+                                <input
+                                class="rating"
+                                max="5"
+                                readonly
+                                        step="0.01"
+                                        style="--fill:#FFD700;--value:@(review.Rating)"
+                                type="range"
+                           value=@review.Rating
+                   />
+                     </div>
+                     <p>@review.Created.ToString("hh:mm tt dd/MM/yyyy")</p>
+                </div>
+                <hr class="my-1" />
+                <p class="rounded bg-white p-1">
+                @review.Comment
+        </p>
+                </div>
+            }
+        </div>
+        */
+    }
+</div>
