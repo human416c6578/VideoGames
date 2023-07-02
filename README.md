@@ -28,7 +28,7 @@ To run the project, make sure you have the following software installed on your 
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/game-library.git
+   git clone https://github.com/human416c6578/VideoGames
    ```
 
 2. Open the project in your preferred Integrated Development Environment (IDE) that supports ASP.NET MVC with C#, such as Visual Studio.
