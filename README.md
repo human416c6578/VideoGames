@@ -99,4 +99,4 @@ Please note that this project is provided as-is without any warranty. Use it at 
 
 ---
 
-Thank you for using the Game Library! If you have any questions or encounter any issues, please don't hesitate to [open an issue](https://github.com/your-username/game-library/issues).
+Thank you for using the Game Library! If you have any questions or encounter any issues, please don't hesitate to [open an issue](https://github.com/human416c6578/VideoGames/issues).
