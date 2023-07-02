@@ -21,7 +21,7 @@ To get started with the Game Library project, follow the instructions below.
 
 To run the project, make sure you have the following software installed on your system:
 
-- [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) (minimum version 6.1)
+- [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) (minimum version 4.6.1)
 
 ### Installation
 
